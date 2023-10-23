@@ -3,9 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snakes and ladder</title>
     <link rel="stylesheet" href="game.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .container {
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
 </head>
 
 <body>
@@ -345,6 +355,40 @@
     <div id="player-piece-container" class="player-piece-container"></div>
     <img src="snake ladder.png" alt="">
     <div id="playerDetailsDisplay" style="position: absolute; top: 10px; right: 10px;"></div>
+    <div class="container">
+        <div class="cube" id="cube">
+            <div class="front">
+                <span class="fas fa-circle"></span>
+            </div>
+            <div class="back">
+                <!-- i use pre tag to align dots -->
+                <pre class="firstPre"><span class="fas fa-circle"></span>    <span class="fas fa-circle"></span>    <span class="fas fa-circle"></span></pre><br>
+                <pre class="secondPre"><span class="fas fa-circle"></span>    <span class="fas fa-circle"></span>    <span class="fas fa-circle"></span></pre>
+            </div>
+            <div class="top">
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+            </div>
+            <div class="left">
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+            </div>
+            <div class="right">
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+            </div>
+            <div class="bottom">
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+                <span class="fas fa-circle"></span>
+            </div>
+        </div>
+    </div>
     
 
 

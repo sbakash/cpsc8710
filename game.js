@@ -100,3 +100,30 @@ document.getElementById("diceBtn").addEventListener("click", function () {
     tog += 1;
 });
 
+let cube = document.getElementById('cube');
+let dice = document.getElementById('dice');
+let angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -88], [-224, -317, 5], [-47, -219, -81], [-133, -360, -53]];
+
+// Function to roll the cube and display the same number on the dice
+function rollCubeAndDisplaySameNumber() {
+    cube.style.animation = 'animate 1.4s linear';
+
+    const randomAngle = Math.floor(Math.random() * 6) + 1;
+    const randomDiceNumber = randomAngle; // Use the same random number as the cube
+
+    cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
+    cube.style.transition = '1s linear';
+
+    cube.addEventListener('animationend', function (e) {
+        cube.style.animation = '';
+    });
+
+    // Display the same random number on the dice
+    dice.textContent = randomDiceNumber;
+}
+
+// Attach the function to both cube click and roll button click events
+cube.addEventListener('click', rollCubeAndDisplaySameNumber);
+document.getElementById('diceBtn').addEventListener('click', rollCubeAndDisplaySameNumber); 
+
+
