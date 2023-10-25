@@ -126,27 +126,6 @@ function positionToPixels(position) {
     }
 }
 
-// function play(player, diceValue) {
-//     const newPosition = player.sum + diceValue;
-
-//     if (newPosition > 100) {
-//         // Player cannot move beyond position 100
-//         return;
-//     }
-
-//     if (snakesAndLadders[newPosition]) {
-//         const newPositionAfterSnakeOrLadder = snakesAndLadders[newPosition];
-//         movePlayer(player, newPositionAfterSnakeOrLadder);
-//         alert(`${player.name} landed on a snake or ladder and moved to position ${newPositionAfterSnakeOrLadder}`);
-//     } else {
-//         movePlayer(player, newPosition);
-//     }
-
-//     if (player.sum === 100) {
-//         alert(`${player.name} won the game!`);
-//         location.reload();
-//     }
-// }
 function play(currentPlayer, currentValue)
 {
     let playerSum = currentPlayer.sum;
@@ -154,6 +133,18 @@ function play(currentPlayer, currentValue)
    
     
     playerSum = playerSum + currentValue
+
+    originalPlayerSum = playerSum;
+
+       
+      
+        
+
+        document.getElementById(`${currentPlayer.name}`).style.transition = `linear all .5s`
+        currentPlayer.sum= playerSum
+     
+        
+        updatePosition(currentPlayer.name, playerSum, correction);
 
         if (playerSum > 100) {
             playerSum = playerSum - sum
@@ -207,13 +198,14 @@ function play(currentPlayer, currentValue)
             playerSum = 79
         }
 
-      
-        currentPlayer.sum= playerSum
-     
-
-        document.getElementById(`${currentPlayer.name}`).style.transition = `linear all .5s`
+        if(originalPlayerSum != playerSum)
+        {
+            currentPlayer.sum= playerSum;
         
-        updatePosition(currentPlayer.name, playerSum, correction);
+            setTimeout(() => {
+                updatePosition(currentPlayer.name, playerSum, correction);
+            }, 700);
+        }
 
 
     
@@ -230,11 +222,7 @@ function positionToPixels(playerName,position) {
     }
 
       let verticalOffset = 0;
-    // if (playerName === playerDetails[0].name) {
-    //     verticalOffset = 5; // Move the first player 5 pixels down
-    // } else if (playerName === playerDetails[2].name) {
-    //     verticalOffset = -5; // Move the third player 5 pixels up
-    // } else
+   
     if (playerName === playerDetails[0].name) {
         verticalOffset = 0; // Move the first player 5 pixels down
     } else if (playerDetails.length > 2 && playerName === playerDetails[2].name) {
@@ -299,7 +287,7 @@ let angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -8
 function rollCubeAndDisplaySameNumber() {
     cube.style.animation = 'animate 1.4s linear';
 
-    const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);;
+    const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
     const randomDiceNumber = randomAngle;
 
     cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
