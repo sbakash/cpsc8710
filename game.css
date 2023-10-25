@@ -53,17 +53,9 @@ body {
 }
 
 .player-piece-container {
-  position: fixed;
-  left: 20px;
-  bottom: 20px;
-}
-
-.player-piece {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 10px;
+  position: absolute;
+  left: 430px;
+  top: 635px;
 }
 
 .player-piece {
@@ -71,8 +63,8 @@ body {
   height: 20px;
   border-radius: 50%;
   position: relative;
-  top: 20px;
 }
+
 /* 
 .color-box {
   width: 10px;
@@ -83,9 +75,10 @@ body {
 } */
 .color-box {
   display: inline-block;
+  position: relative;
   width: 20px;
   height: 20px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 img {
@@ -98,7 +91,63 @@ img {
   height: 615px;
 }
 #diceCont {
-  display: none;
+  position: absolute;
+  top: 400px;
+  left: 10px;
+  background-image: url('wood_texture.png');
+  background-size: cover;
+  padding: 20px;
+  border: 2px solid #8B4513;
+  border-radius: 10px;
+  width: 250px;
+}
+#playerOptions {
+  position: absolute;
+  top: 200px;
+  left: 10px;
+  background-image: url('wood_texture.png');
+  background-size: cover;
+  padding: 20px;
+  border: 2px solid #8B4513;
+  border-radius: 10px;
+  width: 250px;
+
+  color: white;
+
+}
+
+#playerSelectOptions {
+  position: absolute;
+  top: 300px;
+  left: 10px;
+  background-image: url('wood_texture.png');
+  background-size: cover;
+  padding: 20px;
+  border: 2px solid #8B4513;
+  border-radius: 10px;
+  width: 250px;
+  color: white;
+} 
+
+#startGameBtn {
+  background-color: green;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  border-radius: 12px;
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Funky font */
+  position: absolute;
+  top: 450px;
+  left: 80px;
+}
+
+#tog {
+  text-align: center;
+  color: white;
+  font-size: 18px;
 }
 /* #diceCont {
   display: grid;

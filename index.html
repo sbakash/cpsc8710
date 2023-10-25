@@ -21,23 +21,26 @@
 <body>
 
     <h1>Snakes and ladder</h1>
+    <br>
+    <br>
+    <br>
 
-    <div id="diceCont">
+    <div id="diceCont" style="display: none;">
         <p id="tog">Roll the dice to start : </p>
-        <p id="dice">0</p>
-        <button id="diceBtn">ROLL</button>
+
     </div>
     <div id="playerOptions">
         <label for="selectOption">Select number of players:</label>
         <select id="selectOption">
+            <option value="" selected disabled hidden></option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
     </div>
 
-    <div id="dynamicFields"></div>
-    <button id="startGameBtn" style="display: none;">Start Game</button>
+    <div id="playerSelectOptions"></div>
+    <button id="startGameBtn" class="startButton" style="display: none;">Start Game</button>
 
 
     <div class="cont">
@@ -349,13 +352,12 @@
 
     </div>
 
-    <div id="playerPiecesContainer" style="display: flex;">
-    </div>
-
-    <div id="player-piece-container" class="player-piece-container"></div>
+    
     <img src="Snake And Ladder.jpg" alt="">
-    <div id="playerDetailsDisplay" style="position: absolute; top: 10px; right: 10px;"></div>
-    <div class="container">
+    <div id="player-piece-container" class="player-piece-container"></div>
+    
+    <div id="playerDetailsDisplay" style="position: absolute; top: 10px; right: 10px; display: flex; flex-direction: column;">
+    </div>    <div class="container">
         <div class="cube" id="cube">
             <div class="front">
                 <span class="fas fa-circle"></span>
