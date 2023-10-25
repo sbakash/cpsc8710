@@ -19,17 +19,32 @@ document.getElementById("selectOption").addEventListener("change", function () {
     selectedValue = parseInt(this.value);
     dynamicFields.innerHTML = '';
 
-    for (let i = 1; i <= selectedValue; i++) {
-        const label = document.createElement('label');
-        label.textContent = `Player ${i} Name:`;
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.id = `player${i}`;
-        input.value = `Player ${i}`;
-        dynamicFields.appendChild(label);
-        dynamicFields.appendChild(input);
-        dynamicFields.appendChild(document.createElement('br'));
-    }
+    function containsSpecialCharacters(str) {
+    const specialCharacters = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\]/; 
+    return specialCharacters.test(str);
+}
+
+for (let i = 1; i <= selectedValue; i++) {
+    const label = document.createElement('label');
+    label.textContent = `Player ${i} Name:`;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.id = `player${i}`;
+    // input.value = `Player ${i}`;
+    input.placeholder = `Enter Player ${i} name`;
+    input.maxLength = 10;
+    input.addEventListener('input', function () {
+        const inputValue = input.value;
+        if (containsSpecialCharacters(inputValue)) {
+            alert('Special characters are not allowed in the player name.');
+            input.value = ''; 
+        }
+    });
+
+    dynamicFields.appendChild(label);
+    dynamicFields.appendChild(input);
+    dynamicFields.appendChild(document.createElement('br'));
+}
 
     startGameBtn.style.display = 'block';
 });
@@ -54,11 +69,14 @@ startGameBtn.addEventListener("click", function () {
         let colorBox = document.createElement('div');
         colorBox.classList.add('color-box');
         colorBox.style.backgroundColor = colors[i % colors.length];
+        colorBox.style.marginLeft ="5px";
         playerName.textContent = inputElements[i].value || `Player ${i + 1}`;
         playerDiv.appendChild(playerName);
         playerDiv.appendChild(colorBox);
         playerDiv.style.marginBottom = '10px';
         playerDiv.style.marginRight = '10px';
+        playerDiv.style.display = 'flex';
+        playerDiv.style.justifyContent = 'space-between';
 
         playerDetailsDisplay.appendChild(playerDiv);
 
