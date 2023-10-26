@@ -331,8 +331,8 @@ let angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -8
 function rollCubeAndDisplaySameNumber() {
     cube.style.animation = 'animate 1.4s linear';
 
-    // const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-    const randomAngle = 3;
+     const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+    // const randomAngle = 3;
     const randomDiceNumber = randomAngle;
 
     cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
