@@ -15,16 +15,15 @@ const startGameBtn = document.getElementById("startGameBtn");
 const dynamicFields = document.getElementById("playerSelectOptions");
 const diceCont = document.getElementById("diceCont");
 
-var images = ['bg1.jpeg', 'bg2.jpeg', 'bg3.jpeg', 'bg4.jpeg','bg9.jpeg', 'bg5.jpeg', 'bg6.jpeg', 'bg7.jpeg', 'bg8.jpeg'];
+var images = ['bg1.jpeg', 'bg2.jpeg', 'bg3.jpeg', 'bg4.jpeg', 'bg5.jpeg', 'bg6.jpeg', 'bg7.jpeg', 'bg8.jpeg'];
 
 function setRandomBackground() {
     var randomIndex = Math.floor(Math.random() * images.length);
     var selectedImage = images[randomIndex];
     document.body.style.backgroundImage = `url('${selectedImage}')`;
     document.body.style.backgroundSize = 'cover';
-    // document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundPosition = 'center';
     
-    document.body.style.backgroundRepeat = 'no-repeat';
    
 }
 window.onload = setRandomBackground;
@@ -76,36 +75,49 @@ startGameBtn.addEventListener("click", function () {
     playerDetailsDisplay.innerHTML = ''; // Clear any existing content
     cube.style.display = 'block';
 
+    const images = ['image1.webp', 'image2.webp', 'image3.webp', 'image4.webp'];
+
+
+       
     
     for (let i = 0; i < inputElements.length && i < selectedValue; i++) {
+        // let colorBox = document.createElement('div');
+        // colorBox.classList.add('color-box');
+        // colorBox.style.backgroundImage = `url('${randomImage}')`;
+        // colorBox.style.marginLeft ="5px";
+        // playerName.textContent = inputElements[i].value || `Player ${i + 1}`;
+        // playerDiv.appendChild(playerName);
+        // playerDiv.appendChild(colorBox);
+        // playerDiv.style.marginBottom = '10px';
+        // playerDiv.style.marginRight = '10px';
+        // playerDiv.style.display = 'flex';
+        // playerDiv.style.justifyContent = 'space-between';
         let playerDiv = document.createElement('div');
-        let playerName = document.createElement('span');
-        let colorBox = document.createElement('div');
-        colorBox.classList.add('color-box');
-        colorBox.style.backgroundColor = colors[i % colors.length];
-        colorBox.style.marginLeft ="5px";
-        playerName.textContent = inputElements[i].value || `Player ${i + 1}`;
-        playerDiv.appendChild(playerName);
-        playerDiv.appendChild(colorBox);
-        playerDiv.style.marginBottom = '10px';
-        playerDiv.style.marginRight = '10px';
-        playerDiv.style.display = 'flex';
-        playerDiv.style.justifyContent = 'space-between';
+let playerName = document.createElement('span');
+let colorBox = document.createElement('div');
+colorBox.classList.add('color-box');
+let randomImage = images[i % images.length];
+colorBox.style.backgroundImage = `url('${randomImage}')`;
+colorBox.style.marginLeft = "5px";
+playerName.textContent = inputElements[i].value || `Player ${i + 1}`;
+playerDiv.appendChild(playerName);
+playerDiv.appendChild(colorBox);
 
-        playerDetailsDisplay.appendChild(playerDiv);
+playerDetailsDisplay.appendChild(playerDiv);
+
 
         var  piece= document.createElement('div');
         piece.style.position = 'relative';
         piece.style.transition = 'all linear 0.5s';
         piece.style.left = '-62px';
-        var correction=[-10,-5,0,10];
+        var correction=[-10,-5,30,45];
         // piece.style.zIndex = '2';
         piece.id = playerName.textContent;
-        piece.style.backgroundColor = colors[i % colors.length];
+        piece.style.backgroundImage = `url('${randomImage}')`;;
+        // piece.style.backgroundColor = colors[i % colors.length];
         document.body.appendChild(piece);
         piece.classList.add('player-piece');
-        piece.style.backgroundColor = colors[i % colors.length] ;
-            document.getElementById('player-piece-container').appendChild(piece);
+        document.getElementById('player-piece-container').appendChild(piece);
 
             playerDetails.push({
                 name: playerName.textContent,
@@ -256,11 +268,11 @@ function positionToPixels(playerName,position) {
       let verticalOffset = 0;
    
     if (playerName === playerDetails[0].name) {
-        verticalOffset = 0; // Move the first player 5 pixels down
+        verticalOffset = 10; // Move the first player 5 pixels down
     } else if (playerDetails.length > 2 && playerName === playerDetails[2].name) {
-        verticalOffset = -5; // Move the third player 5 pixels up
+        verticalOffset = -20; // Move the third player 5 pixels up
     } else if (playerDetails.length > 3 && playerName === playerDetails[3].name) {
-        verticalOffset = -20; // Move the fourth player 10 pixels up
+        verticalOffset = -40; // Move the fourth player 10 pixels up
     }
 
     return { left: leftPosition + 20, top: topPosition + verticalOffset };
@@ -319,7 +331,8 @@ let angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -8
 function rollCubeAndDisplaySameNumber() {
     cube.style.animation = 'animate 1.4s linear';
 
-    const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+    // const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+    const randomAngle = 3;
     const randomDiceNumber = randomAngle;
 
     cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
