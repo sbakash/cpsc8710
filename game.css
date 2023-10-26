@@ -200,64 +200,64 @@ body{
   background: #f0f0f0;
 }
 .container{
-  perspective: 700px;
+  perspective: 500px;
   perspective-origin: 50% 50%;
   font-family: 'fontawesome';
-  height: 70vh;
+  height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container .cube{
   position: relative;
-  left: 35%;
-  top: 30%;
-  height: 100px;
-  width: 100px;
+  left: 165%;
+  top: 75%;
+  height: 60px;
+  width: 60px;
   transform-style: preserve-3d;
   cursor: pointer;
-  animation: roll 3s infinite;
+  animation: roll 4s linear infinite;
 }
 .container .cube div{
   position: absolute;
   box-sizing: border-box;
   padding: 9px;
-  height: 100%;
-  width: 100%;
+  height: 60%;
+  width: 60%;
   border:2px solid #000;
   color: #000;
 }
 .container .cube div span{
-  font-size: 20px;
+  font-size: 8px;
   font-family: 'fontawesome';
 }
 .container .cube .front{
-  background: lightcoral;
-  transform: translateZ(50px);
+  background: #f0f0f0;
+  transform: translateZ(6px);
 }
 .container .cube .back{
-  background: lightcoral;
-  transform: translateZ(-50px) rotateY(180deg);
+  background: #f0f0f0;
+  transform: translateZ(-30px) rotateY(180deg);
 }
 .container .cube .right{
-  background: lightcoral;
+  background: #f0f0f0;
   transform-origin: top right;
-  transform: rotateY(-270deg) translateX(50px);
+  transform: rotateY(-270deg) translateX(30px);
 }
 .container .cube .left{
-  background: lightcoral;
+  background: #f0f0f0;
   transform-origin: center left;
-  transform: rotateY(270deg) translateX(-50px);
+  transform: rotateY(270deg) translateX(-30px);
 }
 .container .cube .top{
-  background: lightcoral;
+  background: #f0f0f0;
   transform-origin: top center;
-  transform: rotateX(-270deg) translateY(-50px);
+  transform: rotateX(-270deg) translateY(-30px);
 }
 .container .cube .bottom{
-  background: lightcoral;
+  background: #f0f0f0;
   transform-origin: bottom center;
-  transform: rotateX(270deg) translateY(50px);
+  transform: rotateX(270deg) translateY(30px);
 }
 
 /*DOT ALIGNMENT */
@@ -272,48 +272,48 @@ body{
 .container .cube .right span:nth-child(2),
 .container .cube .bottom span:nth-child(1){
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 4px;
+  left: 4px;
 }
 .container .cube .top span:nth-child(2),.container .cube .left span:nth-child(3),
 .container .cube .right span:nth-child(3),
 .container .cube .bottom span:nth-child(2){
   position: absolute;
-  bottom: 12px;
-  right: 12px;
+  bottom: 4px;
+  right: 4px;
 }
 .container .cube .right span:nth-child(4),
 .container .cube .bottom span:nth-child(3){
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 4px;
+  right: 4px;
 }
 .container .cube .right span:nth-child(5),
 .container .cube .bottom span:nth-child(4){
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  bottom: 4px;
+  left: 4px;
 }
 .container .cube .back pre {
-  font-size: 12px;
+  font-size: 4px;
   font-family: 'fontawesome';
   margin: 0;
 }
 .container .cube .back .firstPre {
   position: absolute;
-  top: 12px;
-  left: 10px;
+  top: 3px;
+  left: 2px;
 }
 .container .cube .back .secondPre {
   position: absolute;
-  bottom: 12px;
-  right: 10px;
+  bottom: 3px;
+  right: 2px;
 }
 @keyframes roll {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    transform: rotateX(90deg) rotateY(90deg) rotateZ(180deg);
   }
 }
