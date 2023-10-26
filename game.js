@@ -15,6 +15,20 @@ const startGameBtn = document.getElementById("startGameBtn");
 const dynamicFields = document.getElementById("playerSelectOptions");
 const diceCont = document.getElementById("diceCont");
 
+var images = ['bg1.jpeg', 'bg2.jpeg', 'bg3.jpeg', 'bg4.jpeg','bg9.jpeg', 'bg5.jpeg', 'bg6.jpeg', 'bg7.jpeg', 'bg8.jpeg'];
+
+function setRandomBackground() {
+    var randomIndex = Math.floor(Math.random() * images.length);
+    var selectedImage = images[randomIndex];
+    document.body.style.backgroundImage = `url('${selectedImage}')`;
+    document.body.style.backgroundSize = 'cover';
+    // document.body.style.backgroundPosition = 'center';
+    
+    document.body.style.backgroundRepeat = 'no-repeat';
+   
+}
+window.onload = setRandomBackground;
+
 document.getElementById("selectOption").addEventListener("change", function () {
     selectedValue = parseInt(this.value);
     dynamicFields.innerHTML = '';
