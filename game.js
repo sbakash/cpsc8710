@@ -82,6 +82,7 @@ startGameBtn.addEventListener("click", function () {
     
     for (let i = 0; i < inputElements.length && i < selectedValue; i++) {
         // let colorBox = document.createElement('div');
+        
         // colorBox.classList.add('color-box');
         // colorBox.style.backgroundImage = `url('${randomImage}')`;
         // colorBox.style.marginLeft ="5px";
@@ -93,15 +94,21 @@ startGameBtn.addEventListener("click", function () {
         // playerDiv.style.display = 'flex';
         // playerDiv.style.justifyContent = 'space-between';
         let playerDiv = document.createElement('div');
-let playerName = document.createElement('span');
-let colorBox = document.createElement('div');
-colorBox.classList.add('color-box');
-let randomImage = images[i % images.length];
-colorBox.style.backgroundImage = `url('${randomImage}')`;
-colorBox.style.marginLeft = "5px";
-playerName.textContent = inputElements[i].value || `Player ${i + 1}`;
-playerDiv.appendChild(playerName);
-playerDiv.appendChild(colorBox);
+        let playerName = document.createElement('span');
+        playerName.classList.add('player-name');
+        let colorBox = document.createElement('div');
+        colorBox.classList.add('color-box');
+        let randomImage = images[i % images.length];
+        colorBox.style.backgroundImage = `url('${randomImage}')`;
+        colorBox.style.marginLeft = "5px";
+        playerName.textContent = inputElements[i].value || `Player ${i + 1}`;
+        playerDiv.appendChild(playerName);
+        playerDiv.appendChild(colorBox);
+        playerDiv.style.marginBottom = '10px';
+        playerDiv.style.marginRight = '10px';
+        playerDiv.style.display = 'flex';
+        playerDiv.style.justifyContent = 'space-between';
+        playerDiv.style.alignItems = 'center';
 
 playerDetailsDisplay.appendChild(playerDiv);
 
@@ -383,8 +390,7 @@ let angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -8
 function rollCubeAndDisplaySameNumber() {
     cube.style.animation = 'animate 1.4s linear';
 
-      const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-    //  const randomAngle = 1;
+    const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
     const randomDiceNumber = randomAngle;
 
     cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
@@ -394,12 +400,16 @@ function rollCubeAndDisplaySameNumber() {
         cube.style.animation = '';
     });
 
-    // dice.textContent = randomDiceNumber;
-
-    // document.getElementById("dice").innerText = randomDiceNumber;
-
     const currentPlayerIndex = (tog - 1) % selectedValue;
-    document.getElementById('tog').innerText = `${playerDetails[currentPlayerIndex].name}'s Turn: `;
+
+    // Remove the "active-player" class from all player names
+    const playerNames = document.querySelectorAll('.player-name');
+    playerNames.forEach((nameElement) => {
+        nameElement.classList.remove('active-player');
+    });
+
+    // Add the "active-player" class to the currently playing player's name
+    playerNames[currentPlayerIndex].classList.add('active-player');
 
     if (playerDetails[currentPlayerIndex].sum === 100) {
         winSound.play();
@@ -411,7 +421,6 @@ function rollCubeAndDisplaySameNumber() {
 
     tog += 1;
 }
-
 cube.addEventListener('click', rollCubeAndDisplaySameNumber);
 document.getElementById('diceBtn').addEventListener('click', rollCubeAndDisplaySameNumber);
 
