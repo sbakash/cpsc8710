@@ -239,6 +239,7 @@ function play(currentPlayer, currentValue)
       
         if(playerSum ==100)
         {
+            winSound.play();
             handleGameEnd(currentPlayer.name);
         }
 
