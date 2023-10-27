@@ -221,26 +221,30 @@ function play(currentPlayer, currentValue)
     let correction = currentPlayer.correctionValue;
    
     
-    playerSum = playerSum + currentValue
+    playerSum = playerSum + currentValue;
+    if (playerSum > 100) {
+        playerSum = playerSum - sum
+    }
 
     originalPlayerSum = playerSum;
 
        
       
-        if(playerSum ==2)
+        if(playerSum ==100)
         {
             handleGameEnd(currentPlayer.name);
         }
 
+        if (playerSum > 100) {
+            playerSum = playerSum - sum
+        }
         document.getElementById(`${currentPlayer.name}`).style.transition = `linear all .5s`
         currentPlayer.sum= playerSum
      
         
         updatePosition(currentPlayer.name, playerSum, correction);
 
-        if (playerSum > 100) {
-            playerSum = playerSum - sum
-        }
+        
 
         if (playerSum == 1) {
             playerSum = 38
