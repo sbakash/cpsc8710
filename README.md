@@ -7,8 +7,8 @@ This Snake and Ladder game is a simple web-based implementation of the classic b
 How to Play
 Setup:
 
-Select the number of players from the dropdown menu.\n
-Enter the names of the players in the input fields provided or by default player1, plaayer2, .. will be considered.\n
+Select the number of players from the dropdown menu.
+Enter the names of the players in the input fields provided or by default player1, plaayer2, .. will be considered.
 Click on the "Start Game" button to begin the game.
 
 Gameplay:
