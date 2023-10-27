@@ -26,4 +26,4 @@ Game Implementation
 This web-based Snake and Ladder game is built using HTML, CSS, and JavaScript. It features interactive animations for the dice roll and player movements, creating an engaging and immersive gaming experience. The game logic includes the implementation of snakes and ladders at specific positions, along with functionalities for player movement, position updates, and game-end handling.
 
 Authors
-This Snake and Ladder game was developed by Akash Shanmugam Boobalan, Jagathi and Vinay Kumar Reddy Vallapu Reddy as a part of a web-based application project for the course Foundations of Software Engineering(CPSC 8710).
+This Snake and Ladder game was developed by Akash Shanmugam Boobalan, Jagathi Kota and Vinay Kumar Reddy Vallapu Reddy as a part of a web-based application project for the course Foundations of Software Engineering(CPSC 8710).
