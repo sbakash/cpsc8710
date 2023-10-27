@@ -43,12 +43,7 @@ It is necessary to improve the CSS positioning of game elements, such as the dic
 The development process taught us how important it is to plan and design everything carefully because understanding the game's rules and how users interact with it is essential. Thorough testing and debugging are essential for finding and fixing problems, leading to a more efficient and successful game development process, particularly for intricate logic and animations. A well-structured layout, visually appealing components, and clear, concise instructions can all greatly enhance the player's experience and increase the game's accessibility and engagement. In conclusion, there were obstacles to overcome in the areas of responsive design, user interface, and game logic during the design and development of the "Snakes and Ladders" game. Even though the essential features operate as intended, the user interface, code organization, and visual design could all use some work. This project emphasizes how crucial planning, responsive design, and continuous improvement are to producing an engaging and easy-to-use web game.
 
 ## References 📚
-
-You can find the source code for this project on GitHub:
-
-- [Snakes and Ladder GitHub Repository](https://github.com/jahid28/Games/tree/main/SnakesAndLadder)
-
-![Game Screenshot](https://github.com/sbakash/cpsc8710/assets/21110131/e50a8108-95f3-4a42-96e9-e300f5476916)
+- [Games Repository (Snakes and Ladder)](https://github.com/jahid28/Games/tree/main/SnakesAndLadder)
 
 
 
