@@ -308,7 +308,7 @@ body{
 
 /* Add this to your CSS file */
 .active-player-name {
-  color: #00FF00; /* Change the color for the active player */
+  color: lightcyan; /* Change the color for the active player */
   /* Add any other styling you want for the active player's name */
 }
 
