@@ -169,6 +169,51 @@ function positionToPixels(position) {
         return (9 - col) * 60;
     }
 }
+function handleGameEnd(playerName) {
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    overlay.style.position = 'fixed';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.zIndex = '9999';
+
+    const message = document.createElement('div');
+    message.textContent = `${playerName} Wins!`;
+    message.style.color = 'white';
+    message.style.fontSize = '40px';
+    message.style.textAlign = 'center';
+
+    const restartButton = document.createElement('a');
+    restartButton.textContent = 'Restart';
+    restartButton.href = '#';
+    restartButton.style.padding = '15px 25px';
+    restartButton.style.marginTop = '20px';
+    restartButton.style.backgroundColor = 'red';
+    restartButton.style.color = 'white';
+    restartButton.style.fontSize = '16px';
+    restartButton.style.borderRadius = '12px';
+    restartButton.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
+    restartButton.style.textDecoration = 'none';
+    restartButton.style.position = 'absolute';
+    restartButton.style.bottom = '40%';
+
+    restartButton.addEventListener('click', function () {
+        location.reload();
+    });
+
+    overlay.appendChild(message);
+    overlay.appendChild(restartButton);
+
+    document.body.appendChild(overlay);
+}
+
+
 
 function play(currentPlayer, currentValue)
 {
@@ -182,7 +227,10 @@ function play(currentPlayer, currentValue)
 
        
       
-        
+        if(playerSum ==2)
+        {
+            handleGameEnd(currentPlayer.name);
+        }
 
         document.getElementById(`${currentPlayer.name}`).style.transition = `linear all .5s`
         currentPlayer.sum= playerSum
@@ -331,8 +379,8 @@ let angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -8
 function rollCubeAndDisplaySameNumber() {
     cube.style.animation = 'animate 1.4s linear';
 
-     const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-    // const randomAngle = 3;
+      const randomAngle = Math.floor(Math.random() * (6 - 1 + 1) + 1);
+    //  const randomAngle = 1;
     const randomDiceNumber = randomAngle;
 
     cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
