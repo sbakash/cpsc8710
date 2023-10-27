@@ -1,8 +1,6 @@
 # Snake and Ladder Game 🐍🎲
 
-![Game Preview](link_to_your_image_here)
-
-**Game Link:** [Play Snake and Ladder Game](https://sbakash.github.io/cpsc8710/)
+**Live Demo:** [Play Snake and Ladder Game](https://sbakash.github.io/cpsc8710/)
 
 ## Overview 📜
 This Snake and Ladder game is a simple web-based implementation of the classic board game. Players can enjoy the thrill of climbing ladders and the challenge of avoiding snakes to reach the top of the board. The game features an interactive interface where players can roll virtual dice and watch their game pieces move across the board based on the dice roll. The game also includes a feature to support multiple players, allowing for a competitive and engaging gameplay experience.
