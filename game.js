@@ -116,7 +116,7 @@ playerDetailsDisplay.appendChild(playerDiv);
         var  piece= document.createElement('div');
         piece.style.position = 'relative';
         piece.style.transition = 'all linear 0.5s';
-        piece.style.left = '-62px';
+        piece.style.left = '-72px';
         var correction=[-10,-5,30,45];
         // piece.style.zIndex = '2';
         piece.id = playerName.textContent;
